@@ -1,4 +1,4 @@
-#include "Noctus.dtsi"
+#include "zonkey.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 
