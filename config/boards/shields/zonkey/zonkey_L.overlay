@@ -36,23 +36,6 @@
 };
 
 &spi0 {
-    status = "okay";
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-    glidepoint_L: glidepoint_L@0 {
-        status = "okay";
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
-        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
-        rotate-90;
-
-        sensitivity = "2x";
-        sleep;
-        no-taps;
-
-    };
+    status = "disabled";   // ← これだけでトラックパッドが完全に無効化される
+};
 };
