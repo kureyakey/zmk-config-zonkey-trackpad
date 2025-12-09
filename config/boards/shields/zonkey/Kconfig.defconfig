@@ -31,6 +31,7 @@ if LVGL
         default LV_COLOR_DEPTH_1
     endchoice
 endif
+endif
 
 if SHIELD_ZONKEY_L
 
