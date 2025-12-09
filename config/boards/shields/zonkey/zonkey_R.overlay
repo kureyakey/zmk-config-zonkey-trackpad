@@ -36,7 +36,7 @@
 };
 
 //Trackpad
-&glidepoint_listener_L {
+&glidepoint_listener_R {
     status = "okay";
 };
 
