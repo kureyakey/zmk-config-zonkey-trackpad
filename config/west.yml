@@ -8,7 +8,13 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: petejohanson
       url-base: https://github.com/petejohanson
-  projects:
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
+    - name: te9no
+      url-base: https://github.com/te9no
+    projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
@@ -19,5 +25,8 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
-  self:
+    - name: zmk-dongle-display
+      remote: te9no
+      revision: main
+    self:
     path: config
