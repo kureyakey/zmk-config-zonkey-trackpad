@@ -111,3 +111,8 @@ i2c1_default: i2c1_default {
     status = "okay";
     device = <&glidepoint_R>;
 };
+/ {
+    chosen {
+        zephyr,display = &oled;
+    };
+};
