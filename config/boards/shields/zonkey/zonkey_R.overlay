@@ -48,6 +48,7 @@ i2c1_default: i2c1_default {
             low-power-enable;
         };
     };
+};
 
 &i2c1 {
     status = "okay";
