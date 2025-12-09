@@ -71,7 +71,6 @@
     device = <&glidepoint_R>;
 };
 
-&pinctrl {
     i2c0_default: i2c0_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
@@ -86,7 +85,6 @@
             low-power-enable;
         };
     };
-};
 
 &i2c1 {
     status = "okay";
