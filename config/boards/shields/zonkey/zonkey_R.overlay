@@ -98,7 +98,6 @@ i2c1_default: i2c1_default {
         compatible = "cirque,pinnacle";
         reg = <0>;
         spi-max-frequency = <1000000>;
-        irq-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
         rotate-90;
 
         sensitivity = "2x";
@@ -107,12 +106,10 @@ i2c1_default: i2c1_default {
     };
 };
 
-&glidepoint_listener_R {
-    status = "okay";
-    device = <&glidepoint_R>;
-};
 / {
-    chosen {
-        zephyr,display = &oled;
+    glidepoint_listener_R: glidepoint_listener_R {
+        compatible = "cirque,pinnacle-listener";
+        status = "okay";
+        device = <&glidepoint_R>;
     };
 };
