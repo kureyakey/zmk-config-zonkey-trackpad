@@ -1,0 +1,13 @@
+file_format: "1"
+id: zonkey
+name: zonkey
+type: shield
+url: https://github.com/beekeeb/zmk-keyboard-zonkey-trackpad/
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - display
+  - studio
+siblings:
+  - toucan_left
+  - toucan_right
