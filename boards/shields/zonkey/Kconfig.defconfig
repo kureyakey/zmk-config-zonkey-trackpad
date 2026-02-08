@@ -1,0 +1,6 @@
+if SHIELD_ZONKEY_L || SHIELD_ZONKEY_R
+
+config ZMK_KEYBOARD_NAME
+    default "Zonkey"
+
+endif

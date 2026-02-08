@@ -1,0 +1,5 @@
+include:
+  - board: seeeduino_xiao_ble
+    shield: zonkey_L
+  - board: seeeduino_xiao_ble
+    shield: zonkey_R
