@@ -1,8 +1,5 @@
 include:
   - board: xiao_ble
     shield: zonkey_L
-    # 自分のリポジトリ（設計図がある場所）を追加で探すように指示
-    cmake-args: -DSHIELD_LIST_DIR="/__w/zmk-config-zonkey-trackpad/zmk-config-zonkey-trackpad/config/boards/shields"
   - board: xiao_ble
     shield: zonkey_R
-    cmake-args: -DSHIELD_LIST_DIR="/__w/zmk-config-zonkey-trackpad/zmk-config-zonkey-trackpad/boards/shields"
