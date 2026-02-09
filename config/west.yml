@@ -2,8 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: kureyakey
-      url-base: https://github.com/kureyakey
     - name: caksoylar
       url-base: https://github.com/caksoylar
 
@@ -12,9 +10,6 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: cirque-input-module
-      remote: kureyakey
-      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
