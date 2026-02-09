@@ -47,18 +47,18 @@
         triggers-per-rotation = <10>;
     };
 
-    // --- ここから Input 系ノード ---
+    // --- ここから Input Listener 設定 ---
 
     glidepoint_listener_L: glidepoint_listener_L {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // my_glidepoint ではなく glidepoint に統一
+        device = <&glidepoint>; // ここが my_glidepoint になっていたのが犯人です
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // my_glidepoint ではなく glidepoint に統一
+        device = <&glidepoint>; // ここも glidepoint に統一
     };
 
     split_inputs {
@@ -79,6 +79,7 @@
     };
 };
 
+// SPIデバイスの定義（ルートの外に書く）
 &xiao_spi {
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
