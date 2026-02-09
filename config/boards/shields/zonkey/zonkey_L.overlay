@@ -23,5 +23,5 @@
 };
 &glidepoint_split_R {
     status = "disabled";
-    device = <&glidepoint>;
+    device = <&my_glidepoint>;
 };
