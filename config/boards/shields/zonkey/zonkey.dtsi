@@ -51,21 +51,23 @@
     glidepoint_listener_L: glidepoint_listener_L {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // &glidepoint に戻す
+        device = <&my_glidepoint>;
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // &glidepoint に戻す
+        device = <&my_glidepoint>;
     };
 
     split_inputs_R {
-        /* ... */
+        #address-cells = <1>;
+        #size-cells = <0>;
+
         glidepoint_split_R: glidepoint_split_R@0 {
             compatible = "zmk,input-split";
             reg = <0>;
-            device = <&glidepoint>; // &glidepoint に戻す
+            device = <&my_glidepoint>;
         };
     };
 
@@ -81,14 +83,15 @@
     };
 };
 
+/* ここからが重要：&xiao_spi の定義をルートの外側で完全に独立させる */
 &xiao_spi {
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
 
-    glidepoint: glidepoint@0 { // ここを glidepoint に戻す
+    my_glidepoint: glidepoint@0 {
         compatible = "cirque,pinnacle";
-        status = "okay";
         reg = <0>;
+        status = "okay";
         spi-max-frequency = <1000000>;
         data-ready-gpios = <&xiao_d 7 GPIO_ACTIVE_HIGH>;
     };
