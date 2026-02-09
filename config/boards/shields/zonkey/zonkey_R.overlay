@@ -23,9 +23,9 @@
 
 &glidepoint_listener_R {
     status = "okay";
-    device = <&my_glidepoint>;
+    device = <&glidepoint>;
 };
 &glidepoint_listener_L {
     status = "okay";
-    device = <&my_glidepoint>; /* ここを my_glidepoint に変更 */
+    device = <&glidepoint>; /* ここを my_glidepoint に変更 */
 };
