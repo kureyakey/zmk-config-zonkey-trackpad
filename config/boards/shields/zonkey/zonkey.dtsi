@@ -82,7 +82,7 @@
     status = "okay";
     cs-gpios = <&gpio1 10 (GPIO_ACTIVE_LOW )>, <&gpio0 13 (GPIO_PULL_UP)>;//dummy
 
-    glidepoint: glidepoint@0 {
+    my_glidepoint: glidepoint@0 { 
         compatible = "cirque,pinnacle";
         status = "okay";
         reg = <0>;
