@@ -4,13 +4,19 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: kureyakey
       url-base: https://github.com/kureyakey
+    - name: caksoylar 
+      url-base: https://github.com/caksoylar  
+  
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-pmw3610-driver
+    - name: cirque-input-module
       remote: kureyakey
       revision: main
-  self:
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main  self:
+      
     path: config
