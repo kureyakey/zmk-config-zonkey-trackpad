@@ -19,9 +19,9 @@
 
 &glidepoint_listener_L {
     status = "okay";
-    device = <&my_glidepoint>; /* ここを my_glidepoint に変更 */
+    device = <&glidepoint>; /* ここを my_glidepoint に変更 */
 };
 &glidepoint_split_R {
     status = "disabled";
-    device = <&my_glidepoint>;
+    device = <&glidepoint>;
 };
