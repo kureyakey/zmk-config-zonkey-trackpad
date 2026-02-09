@@ -66,14 +66,11 @@
         glidepoint_split_L: glidepoint_split_L@1 {
             compatible = "zmk,input-split";
             reg = <1>;
-            device = <&my_glidepoint>;
+            input = <&my_glidepoint>;
         };
     };
-
-// SPI
-&qspi {
-	status = "disabled";
 };
+
 &xiao_spi {
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
