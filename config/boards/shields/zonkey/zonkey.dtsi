@@ -51,13 +51,13 @@
     glidepoint_listener_L: glidepoint_listener_L {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&my_glidepoint>;
+        device = <&glidepoint>; // ここを &glidepoint に
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&my_glidepoint>;
+        device = <&glidepoint>; // ここを &glidepoint に
     };
 
     split_inputs_R {
@@ -88,7 +88,7 @@
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
 
-    my_glidepoint: glidepoint@0 {
+    glidepoint: glidepoint@0 { // ラベルを glidepoint に固定
         compatible = "cirque,pinnacle";
         reg = <0>;
         status = "okay";
