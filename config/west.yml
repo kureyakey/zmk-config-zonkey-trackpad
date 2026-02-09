@@ -4,9 +4,9 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: kureyakey
       url-base: https://github.com/kureyakey
-    - name: caksoylar 
-      url-base: https://github.com/caksoylar  
-  
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
+
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -17,6 +17,7 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main  self:
-      
+      revision: main
+
+  self:
     path: config
