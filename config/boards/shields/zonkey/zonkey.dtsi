@@ -47,27 +47,25 @@
         triggers-per-rotation = <10>;
     };
 
-    // Input Listeners (追加: Overlayからの参照エラーを防ぎます)
+    // Input Listeners
     glidepoint_listener_L: glidepoint_listener_L {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&my_glidepoint>;
+        device = <&glidepoint>; // &glidepoint に戻す
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&my_glidepoint>;
+        device = <&glidepoint>; // &glidepoint に戻す
     };
 
     split_inputs_R {
-        #address-cells = <1>;
-        #size-cells = <0>;
-
+        /* ... */
         glidepoint_split_R: glidepoint_split_R@0 {
             compatible = "zmk,input-split";
             reg = <0>;
-            device = <&my_glidepoint>;
+            device = <&glidepoint>; // &glidepoint に戻す
         };
     };
 
