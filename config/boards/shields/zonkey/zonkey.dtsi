@@ -33,44 +33,35 @@
     };
 
     // Encoders
-    left_encoder: left_encoder {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-    right_encoder: right_encoder {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
+    left_encoder: left_encoder { compatible = "alps,ec11"; status = "disabled"; };
+    right_encoder: right_encoder { compatible = "alps,ec11"; status = "disabled"; };
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <10>;
     };
 
-    // --- ここから Input Listener 設定 ---
-
+    // Input Listeners
     glidepoint_listener_L: glidepoint_listener_L {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // ここが my_glidepoint になっていたのが犯人です
+        device = <&glidepoint>; // <--- ここが重要：my_なし！
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint>; // ここも glidepoint に統一
+        device = <&glidepoint>; // <--- ここも my_なし！
     };
 
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
-
         glidepoint_split_R: glidepoint_split_R@0 {
             compatible = "zmk,input-split";
             reg = <0>;
             device = <&glidepoint>;
         };
-
         glidepoint_split_L: glidepoint_split_L@1 {
             compatible = "zmk,input-split";
             reg = <1>;
@@ -79,12 +70,11 @@
     };
 };
 
-// SPIデバイスの定義（ルートの外に書く）
 &xiao_spi {
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
 
-    glidepoint: glidepoint@0 {
+    glidepoint: glidepoint@0 { // <--- ラベル名を glidepoint に固定
         compatible = "cirque,pinnacle";
         status = "okay";
         reg = <0>;
