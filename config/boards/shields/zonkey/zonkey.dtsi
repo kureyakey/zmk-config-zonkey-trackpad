@@ -85,7 +85,7 @@
     status = "okay";
     cs-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio0 13 GPIO_PULL_UP>;
 
-    my_glidepoint: glidepoint@0 {
+    glidepoint: glidepoint@0 { // ここを glidepoint に戻す
         compatible = "cirque,pinnacle";
         status = "okay";
         reg = <0>;
