@@ -55,7 +55,7 @@
         glidepoint_split_R: glidepoint_split_R@0 {
             compatible = "zmk,input-split";
             reg = <0>;
-            device = <&my_glidepoint>;  /* 名前は 'device'。中身は 'my_glidepoint' */
+            device = <&my_glidepoint>;
         };
     };
 
@@ -66,7 +66,7 @@
         glidepoint_split_L: glidepoint_split_L@1 {
             compatible = "zmk,input-split";
             reg = <1>;
-            device = <&my_glidepoint>;  /* 名前は 'device'。中身は 'my_glidepoint' */
+            device = <&my_glidepoint>;
         };
     };
 
