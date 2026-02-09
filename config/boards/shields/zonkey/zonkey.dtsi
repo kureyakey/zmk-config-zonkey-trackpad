@@ -48,7 +48,7 @@
         triggers-per-rotation = <10>;
     };
 
-    // Input Listners
+    // Input Listeners の近くにある split_inputs ブロックを修正
     split_inputs_R {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -56,8 +56,10 @@
         glidepoint_split_R: glidepoint_split_R@0 {
             compatible = "zmk,input-split";
             reg = <0>;
+            device = <&my_glidepoint>; // これを追加！
         };
     };
+
     split_inputs_L {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -65,6 +67,7 @@
         glidepoint_split_L: glidepoint_split_L@1 {
             compatible = "zmk,input-split";
             reg = <1>;
+            device = <&my_glidepoint>; // これを追加！
         };
     };
 
