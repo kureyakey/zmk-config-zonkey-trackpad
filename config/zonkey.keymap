@@ -260,6 +260,6 @@
     };
 };
 /* 最終兵器：どこかで定義されてしまった no-taps を強制消去する */
-&glidepoint {
+&my_glidepoint {
     /delete-property/ no-taps;
 };
