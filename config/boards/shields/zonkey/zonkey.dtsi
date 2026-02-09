@@ -95,6 +95,12 @@
         spi-max-frequency = <1000000>;
         data-ready-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH)>;
 
-        sensitivity = "2x";
+        /* --- 注意！ --- */
+        /* sensitivity は公式ドライバーには存在しません。 */
+        /* エラーを避けるため、一旦コメントアウトします。 */
+        // sensitivity = "2x"; 
+
+        /* もしここに no-taps; や no-smoothing; が隠れていたら */
+        /* それらも絶対に削除してください。 */
     };
 };
