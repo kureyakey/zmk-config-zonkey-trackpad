@@ -33,13 +33,16 @@
 };
 
 &i2c0 {
-    status = "okay";
+    status = "okay"; // 右手側だけ okay に上書き
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
-};
 
-/* 参照は i2c0 のブロックの外に記述します */
-&trackpad {
-    dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>; 
+    /* トラックパッドの設定をここに移動（または overlay 内で再定義） */
+    glidepoint: glidepoint@2a {
+        compatible = "cirque,igpoint";
+        reg = <0x2a>;
+        dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>;
+        status = "okay";
+    };
 };
