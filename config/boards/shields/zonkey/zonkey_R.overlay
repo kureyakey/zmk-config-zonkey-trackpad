@@ -18,13 +18,10 @@
 &xiao_i2c {
     status = "okay";
 
-    /* kureyakey氏のモジュールが期待する定義 */
     pinnacle: pinnacle@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         status = "okay";
-        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>; // Data Readyピン
-        /* このドライバは内部でSPI/I2Cを切り替えるため、
-           追加のパラメータが必要な場合がありますが、まずは最小構成で通します */
+        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>;
     };
 };
