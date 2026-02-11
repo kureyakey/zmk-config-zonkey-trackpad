@@ -14,15 +14,15 @@
         ;
 };
 
+// zonkey_R.overlay
+
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
-            bias-pull-up;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, // XIAOのSDAピン
+                    <NRF_PSEL(TWIM_SCL, 0, 5)>; // XIAOのSCLピン
         };
     };
-
     i2c0_sleep: i2c0_sleep {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
@@ -33,16 +33,14 @@
 };
 
 &i2c0 {
-    status = "okay"; // 右手側だけ okay に上書き
+    status = "okay";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
 
-    /* トラックパッドの設定をここに移動（または overlay 内で再定義） */
-    glidepoint: glidepoint@2a {
+    trackpad: trackpad@2a {
         compatible = "cirque,igpoint";
         reg = <0x2a>;
-        dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>;
-        status = "okay";
+        dr-gpios = <&xiao_d 2 (GPIO_ACTIVE_LOW)>; // 例：DRピンの設定
     };
 };
