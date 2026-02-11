@@ -63,10 +63,11 @@ i2c1_sleep: i2c1_sleep {
 };
 
 /* I2C1: OLED用 (D8, D9想定) */
-&i2c1 {
+&i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-names = "default";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;        /* これを追加 */
+    pinctrl-names = "default", "sleep"; /* ここを 2 つに増やす */
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
