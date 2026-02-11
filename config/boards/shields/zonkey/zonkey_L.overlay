@@ -1,10 +1,5 @@
 #include "zonkey.dtsi"
 
-&i2c0 {
-    status = "disabled";
-};
-
-/* 重要：ここを &kscan に変更しました */
 &kscan {
     col-gpios
         = <&xiao_d 5 GPIO_ACTIVE_HIGH>
@@ -14,4 +9,28 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH>
         , <&xiao_d 7 GPIO_ACTIVE_HIGH>
         ;
+};
+
+/ {
+    left_encoder1: encoder_1 {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    left_encoder2: encoder_2 {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // ピンは基板に合わせて調整してください
+        b-gpios = <&xiao_d 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder1 &left_encoder2>;
+        triggers-per-rotation = <20>;
+    };
 };
