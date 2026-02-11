@@ -1,6 +1,5 @@
 #include "zonkey.dtsi"
 
-/* ボード側のI2C定義を完全に無効化し、空の設定を流し込みます */
 &i2c0 {
     status = "disabled";
     /delete-property/ pinctrl-0;
