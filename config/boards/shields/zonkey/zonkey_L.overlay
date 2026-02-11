@@ -1,11 +1,5 @@
 #include "zonkey.dtsi"
 
-&left_encoder {
-    status = "okay";
-    a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-};
-
 &kscan0 {
     col-gpios
         = <&xiao_d 5 GPIO_ACTIVE_HIGH>
