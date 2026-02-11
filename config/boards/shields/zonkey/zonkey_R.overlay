@@ -47,7 +47,7 @@
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         dr-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-        sensitivity = <1>;
+        sensitivity = "1x";
         sleep;
     };
 };
