@@ -1,8 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/pointing.h>
-/* ↓ これがないと、入力プロセッサを呼び出す際の定数(INPUT_TRANSFORM_X_INVERT)がエラーになります */
 #include <dt-bindings/zmk/input_transform.h>
-
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -32,7 +30,7 @@
             ;
     };
 
-    ssplit_inputs {
+    split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
         glidepoint_split: glidepoint_split@0 {
@@ -41,21 +39,14 @@
         };
     };
 
-    /* リスナー設定：外部モジュールの ZIP ラベルを直接参照 */
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
-        status = "disabled"; 
+        status = "disabled";
         device = <&glidepoint_split>;
         
-        /* 外部モジュールの定義名を確認しつつ設定 */
-        input-processors = <&zip_xy_scaler 250 100>;
-        scroller {
-            layers = <1 2>;
-            input-processors = <
-                &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 1 5
-                &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
-            >;
-        };
+        /* 外部モジュールの ZIP (Input Processor) を使用。
+           ビルドエラーを避けるため、引数なしのシンプルな呼び出しにします。
+        */
+        input-processors = <&zip_xy_scaler>; 
     };
 };
