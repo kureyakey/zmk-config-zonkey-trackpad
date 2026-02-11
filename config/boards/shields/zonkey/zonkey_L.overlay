@@ -4,7 +4,8 @@
     status = "disabled";
 };
 
-&kscan0 {
+/* ここを &kscan0 から &kscan に変更 */
+&kscan {
     col-gpios
         = <&xiao_d 5 GPIO_ACTIVE_HIGH>
         , <&xiao_d 4 GPIO_ACTIVE_HIGH>
