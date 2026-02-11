@@ -27,11 +27,10 @@
             = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
             , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
             , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
-            , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>             
+            , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>              
             ;
     };
 
-    /* ここに left_encoder というラベル（名前）を定義します */
     left_encoder: left_encoder {
         compatible = "alps,ec11";
         a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -40,15 +39,15 @@
         status = "disabled";
     };
 
- / {
-    /* トラックパッドの「型」だけ定義しておく */
+    /* トラックパッドの「型」定義 */
     trackpad: trackpad {
         compatible = "cirque,igpoint";
         reg = <0x2a>;
-        status = "disabled"; // デフォルトでは無効にする
+        status = "disabled"; 
     };
-};
+}; // ここで全てのルートノードを閉じます
 
+/* I2Cの設定はルートの外側に記述します */
 &i2c0 {
-    status = "disabled"; // 左手ビルド時はここが disabled なので pinctrl 不要で通る
+    status = "disabled";
 };
