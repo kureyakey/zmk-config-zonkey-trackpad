@@ -5,7 +5,7 @@
 #include <input/processors.dtsi>
 
 / {
-    /* 1. 入力プロセッサの定義 */
+    /* 1. XY移動の倍率設定 (これは codes が必要) */
     zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
@@ -13,6 +13,7 @@
         codes = <INPUT_REL_X INPUT_REL_Y>;
     };
 
+    /* 2. マウス移動をスクロールに変換 */
     zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
@@ -20,6 +21,7 @@
         map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
     };
 
+    /* 3. スクロールの倍率設定 (これは codes が必要) */
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
@@ -27,11 +29,11 @@
         codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
     };
 
+    /* 4. スクロールの反転設定 (codes を削除！) */
     zip_scroll_transform: zip_scroll_transform {
         compatible = "zmk,input-processor-transform";
         #input-processor-cells = <1>;
         type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
     };
 
     /* 2. リスナーとスプリット設定 */
