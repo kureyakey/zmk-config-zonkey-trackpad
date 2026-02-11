@@ -1,39 +1,21 @@
 #include "zonkey.dtsi"
 
-&default_transform {
-    col-offset = <6>;
-};
-
-&kscan0 {
-    col-gpios
-        = <&xiao_d 10 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 9 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
-        , <&gpio0 10 GPIO_ACTIVE_HIGH>
-        ;
-};
-
-// zonkey_R.overlay
-
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, // XIAOのSDAピン
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>; // XIAOのSCLピン
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, <NRF_PSEL(TWIM_SCL, 0, 5)>;
         };
     };
     i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, <NRF_PSEL(TWIM_SCL, 0, 5)>;
             low-power-enable;
         };
     };
 };
 
 &i2c0 {
-    status = "okay";
+    status = "okay"; // 右手は有効
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -41,6 +23,17 @@
     trackpad: trackpad@2a {
         compatible = "cirque,igpoint";
         reg = <0x2a>;
-        dr-gpios = <&xiao_d 2 (GPIO_ACTIVE_LOW)>; // 例：DRピンの設定
+        status = "okay";
+        dr-gpios = <&xiao_d 2 (GPIO_ACTIVE_LOW)>; // 適切なピンに変更してください
     };
+};
+
+&kscan0 {
+    col-gpios
+        = <&xiao_d 7 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 10 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        ;
 };
