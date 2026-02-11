@@ -24,14 +24,16 @@
     pinctrl-names = "default", "sleep";
 
     pinnacle: pinnacle@2a {
-        /* ここを修正 */
-        compatible = "cirque,pinnacle"; 
-        /* もしエラーが消えない場合は "pinnacle" だけで試してください */
+        /* cirque,pinnacle でエラーが出る場合は、
+           モジュールが定義している正しい compatible 名にする必要があります。
+           多くの外部モジュールでは "cirque,pinnacle" ですが、
+           エラーが続く場合は "pinnacle" に書き換えてください。 */
+        compatible = "cirque,pinnacle";
         reg = <0x2a>;
         status = "okay";
         dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>;
         
-        /* ドライバによっては以下の設定が必要な場合があります */
-        active-pwr0 = <0xff>;
+        /* このモジュールで必須となることが多い設定項目 */
+        sleep-gpios = <&xiao_d 1 GPIO_ACTIVE_LOW>; // 未使用なら削除可
     };
 };
