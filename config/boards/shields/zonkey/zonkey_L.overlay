@@ -32,3 +32,8 @@
         , <&xiao_d 0 GPIO_ACTIVE_HIGH>
         ;
 };
+/* 左手側にはトラックパッド実体がないので、中継ノードを無効化する */
+&glidepoint_split {
+    status = "disabled";
+    /delete-property/ device;
+};
