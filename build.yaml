@@ -7,3 +7,4 @@ include:
     artifact-name: zonkey_R
   - board: seeeduino_xiao_ble
     shield: settings_reset
+　
