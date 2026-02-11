@@ -1,4 +1,4 @@
-nclude:
+include:
 
 board: seeeduino_xiao_ble shield: zonkey_L rgbled_adapter artifact-name: zonkey_L
 
