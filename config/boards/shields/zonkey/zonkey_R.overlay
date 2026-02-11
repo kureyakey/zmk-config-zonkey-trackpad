@@ -15,6 +15,8 @@
         ;
 };
 
+// zonkey_R.overlay の該当箇所
+
 &i2c0 {
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
@@ -22,9 +24,14 @@
     pinctrl-names = "default", "sleep";
 
     pinnacle: pinnacle@2a {
-        compatible = "cirque,pinnacle";
+        /* ここを修正 */
+        compatible = "cirque,pinnacle"; 
+        /* もしエラーが消えない場合は "pinnacle" だけで試してください */
         reg = <0x2a>;
         status = "okay";
         dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>;
+        
+        /* ドライバによっては以下の設定が必要な場合があります */
+        active-pwr0 = <0xff>;
     };
 };
