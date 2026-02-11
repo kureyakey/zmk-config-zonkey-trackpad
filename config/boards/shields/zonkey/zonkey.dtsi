@@ -1,8 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/input_transform.h>
-/* ↓ ファイルパスを Zephyr 本体のものに修正しました */
-#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/bt.h>
+#include <input/processors.dtsi>
+
 / {
     /* 1. 入力プロセッサの定義 */
     zip_xy_scaler: zip_xy_scaler {
