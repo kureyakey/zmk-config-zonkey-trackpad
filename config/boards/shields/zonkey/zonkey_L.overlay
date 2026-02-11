@@ -1,4 +1,4 @@
-#include "zonkeytest.dtsi"
+#include "zonkey.dtsi"
 
 &kscan0 {
         col-gpios
