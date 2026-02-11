@@ -1,30 +1,13 @@
 #include "zonkey.dtsi"
 
-&pinctrl {
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, <NRF_PSEL(TWIM_SCL, 0, 5)>;
-        };
-    };
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, <NRF_PSEL(TWIM_SCL, 0, 5)>;
-            low-power-enable;
-        };
-    };
-};
-
 &i2c0 {
-    status = "okay"; // 右手は有効
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
-    pinctrl-names = "default", "sleep";
-
+    /* ボード(xiao_ble)で既にstatus="okay"とpinctrlが定義されているので、
+       ここではデバイスの追加だけを行います */
     trackpad: trackpad@2a {
         compatible = "cirque,igpoint";
         reg = <0x2a>;
         status = "okay";
-        dr-gpios = <&xiao_d 2 (GPIO_ACTIVE_LOW)>; // 適切なピンに変更してください
+        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW)>; /* 使用していないD0を一旦指定 */
     };
 };
 
