@@ -15,8 +15,8 @@
     };
 };
 
-/* 右手側のキーマトリックス列ピンを定義 */
-&kscan0 {
+/* 重要：共通の kscan ノードに右手の列ピンを合体 */
+&kscan {
     col-gpios
         = <&xiao_d 7 GPIO_ACTIVE_HIGH>
         , <&xiao_d 8 GPIO_ACTIVE_HIGH>
