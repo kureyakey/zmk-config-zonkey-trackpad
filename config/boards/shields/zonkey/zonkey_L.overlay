@@ -1,10 +1,7 @@
 #include "zonkey.dtsi"
 
 &i2c0 {
-    status = "disabled";
-    /delete-property/ pinctrl-0;
-    /delete-property/ pinctrl-1;
-    /delete-property/ pinctrl-names;
+    status = "disabled"; // 左手ではI2Cを使わない
 };
 
 &kscan0 {
