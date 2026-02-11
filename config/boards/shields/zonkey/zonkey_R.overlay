@@ -1,16 +1,5 @@
 #include "zonkey.dtsi"
 
-&i2c0 {
-    /* ボード(xiao_ble)で既にstatus="okay"とpinctrlが定義されているので、
-       ここではデバイスの追加だけを行います */
-    trackpad: trackpad@2a {
-        compatible = "cirque,igpoint";
-        reg = <0x2a>;
-        status = "okay";
-        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW)>; /* 使用していないD0を一旦指定 */
-    };
-};
-
 &kscan0 {
     col-gpios
         = <&xiao_d 7 GPIO_ACTIVE_HIGH>
