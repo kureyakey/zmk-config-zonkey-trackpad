@@ -1,6 +1,13 @@
 #include "zonkey.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 
+/ {
+    chosen {
+        zephyr,display = &oled;
+    };
+};
+
+
 &default_transform { col-offset = <6>; };
 
 &kscan0 {
