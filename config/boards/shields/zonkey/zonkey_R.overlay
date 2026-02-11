@@ -15,7 +15,7 @@
     };
 };
 
-/* ここを &kscan0 から &kscan に修正 */
+/* 重要：ここを &kscan0 から &kscan に変更 */
 &kscan {
     col-gpios
         = <&xiao_d 7 GPIO_ACTIVE_HIGH>
