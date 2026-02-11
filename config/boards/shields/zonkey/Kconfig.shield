@@ -3,6 +3,6 @@ config SHIELD_ZONKEY_L
 
 config SHIELD_ZONKEY_R
     def_bool $(shields_list_contains,zonkey_R)
-    # 以下の2行を追加して、依存関係を強制的に解決します
+    # 以下の2行を追加して、依存関係を強制解決します
     select I2C
     select PINNACLE
