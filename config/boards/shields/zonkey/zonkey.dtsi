@@ -31,10 +31,10 @@
             ;
     };
 
-    /* このノード定義が必要です */
+    /* ここが37行目付近です。余計なプロパティを消し、器だけにしました */
     left_encoder: left_encoder {
         compatible = "alps,ec11";
-        steps = ;
+        steps = <80>;
         status = "disabled";
     };
 };
