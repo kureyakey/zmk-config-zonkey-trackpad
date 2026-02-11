@@ -30,4 +30,11 @@
             , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
+
+    /* このノード定義が必要です */
+    left_encoder: left_encoder {
+        compatible = "alps,ec11";
+        steps = ;
+        status = "disabled";
+    };
 };
