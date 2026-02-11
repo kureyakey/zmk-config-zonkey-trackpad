@@ -14,7 +14,6 @@
 / {
     left_encoder1: encoder_1 {
         compatible = "alps,ec11";
-        // Xiao D6 と D0 を使用
         a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
@@ -23,11 +22,9 @@
 
     left_encoder2: encoder_2 {
         compatible = "alps,ec11";
-        // 空いているアナログ/デジタル兼用ピン D1 と D2 は行列で使用中のため、
-        // もし基板が別のピンを使っている場合はここを変更してください。
-        // ここではエラー回避のため、一旦有効なピン（D10/D9等と被りますがビルドは通ります）を指定します
-        a-gpios = <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; 
-        b-gpios = <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        // エラー回避のため、一旦有効なピンを指定（実際の配線に応じて0-10で調整してください）
+        a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; 
+        b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
