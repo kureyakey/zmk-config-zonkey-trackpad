@@ -38,16 +38,17 @@
         steps = <80>;
         status = "disabled";
     };
+}; // ルートノード終了
 
-    /* トラックパッドの「型」定義 */
-    trackpad: trackpad {
+/* I2Cの中にトラックパッドの「型」を定義する。
+   左手ビルド時は i2c0 自体が disabled なので、中身が評価されずエラーになりません。
+*/
+&i2c0 {
+    status = "disabled";
+    
+    trackpad: trackpad@2a {
         compatible = "cirque,igpoint";
         reg = <0x2a>;
         status = "disabled"; 
     };
-}; // ここで全てのルートノードを閉じます
-
-/* I2Cの設定はルートの外側に記述します */
-&i2c0 {
-    status = "disabled";
 };
