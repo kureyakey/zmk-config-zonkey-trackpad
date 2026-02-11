@@ -1,34 +1,11 @@
 #include "zonkey.dtsi"
 
-/* * ボード側の pinctrl-0 エラーを回避するため、
- * ボード標準の i2c0_default などをそのまま参照させるか、
- * 独自に定義して明示的に割り当てる必要があります。
- */
-
-&pinctrl {
-    /* 左手では使わないが、文法上必要な定義 */
-    i2c0_default_alt: i2c0_default_alt {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
-        };
-    };
-
-    i2c0_sleep_alt: i2c0_sleep_alt {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
-            low-power-enable;
-        };
-    };
-};
-
+/* ボード側のI2C定義を完全に無効化し、空の設定を流し込みます */
 &i2c0 {
-    /* statusをdisabledにしても、pinctrlは「存在」していなければならない */
     status = "disabled";
-    pinctrl-0 = <&i2c0_default_alt>;
-    pinctrl-1 = <&i2c0_sleep_alt>;
-    pinctrl-names = "default", "sleep";
+    /delete-property/ pinctrl-0;
+    /delete-property/ pinctrl-1;
+    /delete-property/ pinctrl-names;
 };
 
 &kscan0 {
