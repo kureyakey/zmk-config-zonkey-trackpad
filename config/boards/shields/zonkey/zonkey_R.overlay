@@ -7,11 +7,22 @@
     pinctrl-names = "default", "sleep";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
-    /* トラックパッドの定義。アドレスは通常 0x2a です */
     pinnacle: pinnacle@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         status = "okay";
-        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>; // データレディピンの割り当てを確認してください
+        dr-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>;
     };
+};
+
+/* 右手側のキーマトリックス列ピンを定義 */
+&kscan0 {
+    col-gpios
+        = <&xiao_d 7 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 10 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+        ;
 };
