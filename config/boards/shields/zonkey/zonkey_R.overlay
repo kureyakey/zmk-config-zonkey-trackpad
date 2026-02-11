@@ -34,20 +34,22 @@
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-names = "default";
+
     trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        dr-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>; // D7
+        dr-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
         sensitivity = <1>;
         sleep;
     };
 };
 
-/* I2C1: OLED専用 */
+/* I2C1: OLED用 (D8, D9想定) */
 &i2c1 {
     status = "okay";
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
+
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
