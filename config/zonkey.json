@@ -55,15 +55,15 @@
   "sensors": [
     {
       "ref": "left_encoder_1",
-      "name": "left_encoder_1",
-      "identifier": "left_encoder_1",
+      "name": "encoder_1",
+      "identifier": "encoder_1",
       "compatible": "alps,ec11",
       "enabled": false
     },
     {
       "ref": "left_encoder_2",
-      "name": "encoder_right",
-      "identifier": "encoder_right",
+      "name": "encoder_2 ",
+      "identifier": "encoder_2 ",
       "enabled": false
     }
   ]
