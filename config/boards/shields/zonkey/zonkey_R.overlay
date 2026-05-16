@@ -56,7 +56,8 @@
         
         // ❌ irq-gpios = <&gpio0 2 ...>; から以下のように書き換えます
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        
+        zephyr,axis-x = <INPUT_REL_X>;
+        zephyr,axis-y = <INPUT_REL_Y>;
         automouse-layer = <6>;
         scroll-layers = <5>;
     };
