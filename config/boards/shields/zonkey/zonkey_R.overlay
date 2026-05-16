@@ -1,3 +1,5 @@
+#include <dt-bindings/input/input-event-codes.h> // 👈 前回のインクルード
+#include <dt-bindings/zmk/input_transform.h>    // 👈 インプット処理用に新しく追加
 #include "zonkey.dtsi"
 
 &default_transform {
@@ -17,7 +19,9 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
+        
+        // ⭕ 新しいAutomouseの定義方法です（旧 automouse-layer = <6>; に相当）
+        input-processors = <&zip_automouse_layer 6>; 
     };
 };
 
@@ -36,7 +40,7 @@
         <NRF_PSEL(SPIM_MOSI, 0, 4)>,
         <NRF_PSEL(SPIM_MISO, 0, 4)>;
             low-power-enable;
-        };
+                };
     };
 };
 
@@ -53,12 +57,10 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        
-        // ❌ irq-gpios = <&gpio0 2 ...>; から以下のように書き換えます
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
-        automouse-layer = <6>;
-        scroll-layers = <5>;
+        
+        // ❌ automouse-layer と scroll-layers はここから削除しました
     };
 };
