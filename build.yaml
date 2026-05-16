@@ -20,7 +20,7 @@
 include:
   - board: xiao_ble//zmk
     shield: zonkey_R rgbled_adapter
-  - board: xiao_ble
+  - board: xiao_ble//zmk
     shield: zonkey_L rgbled_adapter
   - board: xiao_ble//zmk
     shield: settings_reset
